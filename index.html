@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RBC FEA Review Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --bg:#f5f6f8; --surface:#ffffff; --ink:#14213a; --muted:#5a6475; --line:#dde1e8;
+  --accent:#1f4f8f; --accent-soft:#e6edf7; --mark:#fff1b8;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1520; --surface:#161e2c; --ink:#e7ebf2; --muted:#9aa5b8; --line:#2a3446;
+    --accent:#8fb4ea; --accent-soft:#1d2a40; --mark:#5a4a12; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1520; --surface:#161e2c; --ink:#e7ebf2; --muted:#9aa5b8; --line:#2a3446;
+  --accent:#8fb4ea; --accent-soft:#1d2a40; --mark:#5a4a12; color-scheme:dark;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px;padding-block:28px 56px;display:flex;flex-direction:column;gap:28px}
+header{display:flex;flex-direction:column;gap:10px}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,5.4vw,36px);line-height:1.15;margin:0;text-wrap:balance}
+.lede{margin:0;color:var(--muted);max-width:62ch}
+.invite{background:var(--accent-soft);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.invite p{margin:0}
+.invite strong{font-weight:600}
+.email{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.email code{font-family:var(--mono);font-size:15px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px 10px;user-select:all;word-break:break-all}
+button{font:inherit;font-size:14px;font-weight:600;color:var(--surface);background:var(--accent);border:0;border-radius:6px;padding:7px 14px;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.search{display:flex;flex-direction:column;gap:6px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding-block:8px;z-index:2}
+.search label{font-size:13px;font-weight:600;color:var(--muted)}
+.search input{font:inherit;font-size:17px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;width:100%;box-sizing:border-box}
+.count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+ol.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+ol.list li{display:grid;grid-template-columns:3.2em 1fr;gap:4px 10px;padding-block:14px;border-bottom:1px solid var(--line)}
+.n{font-family:var(--mono);font-size:15px;color:var(--accent);font-variant-numeric:tabular-nums;padding-top:1px}
+.cite{display:flex;flex-direction:column;gap:3px;min-width:0}
+.au{font-size:14px;color:var(--muted)}
+.ti{font-weight:500}
+.so{font-size:14px;color:var(--muted)}
+.so a{color:var(--accent);word-break:break-all}
+mark{background:var(--mark);color:inherit;border-radius:2px}
+.empty{color:var(--muted);padding:16px 0}
+h2{font-family:var(--serif);font-weight:600;font-size:22px;margin:0}
+section{display:flex;flex-direction:column;gap:10px}
+.small{font-size:14px;color:var(--muted);margin:0}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Academy of Dental Materials · Poster</div>
+    <h1>Modelling Practice in Finite Element Analysis of Resin-Based Composite Restorations: A Scoping Review</h1>
+    <p class="lede">Robert Graham, Elnaz Hajizadeh, Jaafar Abduo, Paul Farrar, Leon Prentice, David Ackland. The 49 studies included in the review, numbered 1–49 by first author as on the poster.</p>
+  </header>
+
+  <div class="invite" role="note">
+    <p><strong>Is your study on this list?</strong> I would like to hear about your work, and to know if I have described any part of it incorrectly.</p>
+    <div class="email">
+      <code id="addr">grahamrb@student.unimelb.edu.au</code>
+      <button type="button" id="copy">Copy email</button>
+      <span id="copied" class="small" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <div class="search">
+    <label for="q">Search by author, year or title</label>
+    <input id="q" type="search" placeholder="e.g. Ausiello, 2025, cervical" autocomplete="off">
+    <div class="count" id="count"></div>
+  </div>
+
+  <ol class="list" id="list" aria-live="polite"></ol>
+
+  <section>
+    <h2>Experimental ranges in Fig. 2</h2>
+    <p class="small">Shaded bands show measured elastic moduli from these sources.</p>
+    <ol class="list" id="bands"></ol>
+  </section>
+
+  <footer>Numbers match the poster. The full review is in preparation.</footer>
+</div>
+
+<script>
+const S=[
+[1,"Antunes Junior C, Mercuri EGF, Franco A, Costa M, Karam LZ, Kalinowski HJ, et al.",2020,"Bulk Fill flow resin contraction using 3D finite element model and calibration by Fiber Bragg Grating measurement.","Comput Methods Biomech Biomed Engin 2020;23:1127–37.","10.1080/10255842.2020.1789607"],
+[2,"Ausiello P, Ciaramella S, Martorelli M, Lanzotti A, Gloria A, Watts DC.",2017,"CAD-FE modeling and analysis of class II restorations incorporating resin-composite, glass ionomer and glass ceramic materials.","Dent Mater 2017;33:1456–65.","10.1016/j.dental.2017.10.010"],
+[3,"Ausiello P, Ciaramella S, Fabianelli A, Gloria A, Martorelli M, Lanzotti A, et al.",2017,"Mechanical behavior of bulk direct composite versus block composite and lithium disilicate indirect Class II restorations by CAD-FEM modeling.","Dent Mater 2017;33:690–701.","10.1016/j.dental.2017.03.014"],
+[4,"Ausiello P, Ciaramella S, Garcia-Godoy F, Martorelli M, Sorrentino R, Gloria A.",2017,"Stress distribution of bulk-fill resin composite in class II restorations.","Am J Dent 2017;30:227–32.",""],
+[5,"Ausiello P, Ciaramella S, Di Rienzo A, Lanzotti A, Ventre M, Watts DC.",2019,"Adhesive class I restorations in sound molar teeth incorporating combined resin-composite and glass ionomer materials: CAD-FE modeling and analysis.","Dent Mater 2019;35:1514–22.","10.1016/j.dental.2019.07.017"],
+[6,"Ausiello PP, Ciaramella S, Lanzotti A, Ventre M, Borges AL, Tribst JP, et al.",2019,"Mechanical behavior of Class I cavities restored by different material combinations under loading and polymerization shrinkage stress. A 3D-FEA study.","Am J Dent 2019;32:55–60.",""],
+[7,"Ausiello P, Dal Piva AMD, Borges ALS, Lanzotti A, Zamparini F, Epifania E, et al.",2021,"Effect of Shrinking and No Shrinking Dentine and Enamel Replacing Materials in Posterior Restoration: A 3D-FEA Study.","Applied Sciences-Basel 2021;11.","10.3390/app11052215"],
+[8,"Ausiello P, Ciaramella S, De Benedictis A, Lanzotti A, Tribst JPM, Watts DC.",2021,"The use of different adhesive filling material and mass combinations to restore class II cavities under loading and shrinkage effects: a 3D-FEA.","Comput Methods Biomech Biomed Engin 2021;24:485–95.","10.1080/10255842.2020.1836168"],
+[9,"Ausiello P, Dal Piva AMO, di Lauro AE, Garcia-Godoy F, Testarelli L, Tribst JPM.",2022,"Mechanical Behavior of Alkasite Posterior Restorations in Comparison to Polymeric Materials: A 3D-FEA Study.","Polymers (Basel) 2022;14.","10.3390/polym14081502"],
+[10,"Babaei B, Shouha P, Birman V, Farrar P, Prentice L, Prusty G.",2022,"The effect of dental restoration geometry and material properties on biomechanical behaviour of a treated molar tooth: A 3D finite element analysis.","J Mech Behav Biomed Mater 2022;125:104892.","10.1016/j.jmbbm.2021.104892"],
+[11,"Barink M, Van der Mark PC, Fennis WM, Kuijs RH, Kreulen CM, Verdonschot N.",2003,"A three-dimensional finite element model of the polymerization process in dental restorations.","Biomaterials 2003;24:1427–35.","10.1016/s0142-9612(02)00529-x"],
+[12,"Chuang SF, Chang CH, Chen TY.",2011,"Contraction behaviors of dental composite restorations — finite element investigation with DIC validation.","J Mech Behav Biomed Mater 2011;4:2138–49.","10.1016/j.jmbbm.2011.07.014"],
+[13,"Chuang SF, Huang PS, Chen TY, Huang LH, Su KC, Chang CH.",2016,"Shrinkage behaviors of dental composite restorations — The experimental-numerical hybrid analysis.","Dent Mater 2016;32:e362–73.","10.1016/j.dental.2016.09.022"],
+[14,"Dejak B, Mlotkowski A.",2015,"A comparison of stresses in molar teeth restored with inlays and direct restorations, including polymerization shrinkage of composite resin and tooth loading during mastication.","Dent Mater 2015;31:e77–87.","10.1016/j.dental.2014.11.016"],
+[15,"di Lauro AE, Ciaramella S, Tribst JPM, Aliberti A, Ausiello P.",2024,"Comparison of Bulk Polymeric Resin Composite and Hybrid Glass Ionomer Cement in Adhesive Class I Dental Restorations: A 3D Finite Element Analysis.","Polymers (Basel) 2024;16.","10.3390/polym16172525"],
+[16,"Fidancioğlu YD, Alkurt Kaplan S, Mohammadi R, Gönder HY.",2025,"Three-Dimensional Finite Element Analysis (FEM) of Tooth Stress: The Impact of Cavity Design and Restorative Materials.","Applied Sciences-Basel 2025;15.","10.3390/app15179677"],
+[17,"Gönder HY, Mohammadi R, Harmankaya A, Burak Yuksel I, Seda Gultekin D.",2022,"Investigation of the Effects of Adhesive Materials of Different Types and Thicknesses on Dental Tissue Stress via FEM Analysis.","Biomed Res Int 2022;2022:8493909.","10.1155/2022/8493909"],
+[18,"Gönder HY, Mohammadi R, Harmankaya A, Yuksel IB, Fidancioglu YD, Karabekiroglu S.",2023,"Teeth Restored with Bulk-Fill Composites and Conventional Resin Composites; Investigation of Stress Distribution and Fracture Lifespan on Enamel, Dentin, and Restorative Materials via Three-Dimensional Finite Element Analysis.","Polymers (Basel) 2023;15.","10.3390/polym15071637"],
+[19,"Guler MS, Guler C, Cakici F, Cakici EB, Sen S.",2016,"Finite element analysis of thermal stress distribution in different restorative materials used in class V cavities.","Niger J Clin Pract 2016;19:30–4.","10.4103/1119-3077.173702"],
+[20,"Jafari T, Alaghehmad H, Moodi E.",2018,"Evaluation of cavity size, kind, and filling technique of composite shrinkage by finite element.","Dent Res J (Isfahan) 2018;15:33–9.","10.4103/1735-3327.223617"],
+[21,"Jung MK, Jeon MJ, Kim JH, Son SA, Park JK, Seo DG.",2024,"Comparison of the stress distribution in base materials and thicknesses in composite resin restorations.","Heliyon 2024;10:e25040.","10.1016/j.heliyon.2024.e25040"],
+[22,"Kantardzic I, Vasiljevic D, Blazic L, Puskar T, Tasic M.",2012,"Computed-tomography scan-based finite element analysis of stress distribution in premolars restored with composite resin.","Physica Scripta 2012;T149:014075.","10.1088/0031-8949/2012/T149/014075"],
+[23,"Kim KH, Park JK, Son K.",2008,"Relationship between stiffness of restorative material and stress distribution for notch-shaped non-carious cervical lesions.","Int J Precis Eng Manuf 2008;9:64–7.",""],
+[24,"Li Y, Shao B, Liu Z.",2025,"Adhesive damage of class V restorations under shrinkage stress and occlusal forces using cohesive zone modeling.","J Mech Behav Biomed Mater 2025;163:106880.","10.1016/j.jmbbm.2024.106880"],
+[25,"Li Y, Shao B, Liu Z.",2026,"Simulating Adhesive Damage in Different Filling Methods for Class V Restorations Under Polymerization Shrinkage and Occlusion Forces.","J Esthet Restor Dent 2026;38:371–81.","10.1111/jerd.70047"],
+[26,"Luo X, Rong Q, Luan Q, Yu X.",2022,"Effect of partial restorative treatment on stress distributions in non-carious cervical lesions: a three-dimensional finite element analysis.","BMC Oral Health 2022;22:607.","10.1186/s12903-022-02647-8"],
+[27,"Machado AC, Zeola LF, Naves MFD, Faria VLG, Cardoso IO, Soares PV.",2018,"Influence of Anterior Load and Restorative Procedure on Maxillary Incisors with Different Cervical Wear Morphologies.","Bioscience Journal 2018;34:1443–54.",""],
+[28,"Magne P, Oganesyan T.",2009,"CT scan-based finite element analysis of premolar cuspal deflection following operative procedures.","Int J Periodontics Restorative Dent 2009;29:361–9.",""],
+[29,"Manchorova-Veleva NA.",2011,"Three-dimensional biomechanical study of functional stresses in composite restorations of masticatory teeth.","Folia Med (Plovdiv) 2011;53:60–5.","10.2478/v10153-011-0069-7"],
+[30,"Mohammadi R, Alkurt Kaplan S, Harmankaya A, Gönder HY.",2025,"Investigation of Stress Distribution and Fatigue Performance in Restored Teeth Using Different Thicknesses of Adhesive Materials and Different Restorative Materials: 3D Finite Element Analysis (FEM).","Materials (Basel) 2025;18.","10.3390/ma18163888"],
+[31,"Narayanaswamy S, Meena N, Shetty A, Kumari A, Naveen DN.",2008,"Finite element analysis of stress concentration in Class V restorations of four groups of restorative materials in mandibular premolar.","J Conserv Dent 2008;11:121–6.","10.4103/0972-0707.45251"],
+[32,"Ozcan C, Lestriez P, Josset Y.",2025,"Composite Restoration Design Effect During Curing and Chewing.","Int J Prosthodont 2025;38:76–83.","10.11607/ijp.8824"],
+[33,"Pai S, Nayak N, Awasthi S, Acharya SR, Bhat V, Patil V.",2021,"Effect of Thickness of Various Restorative Materials and Hybrid Layer on Stress Distribution of Direct Cervical Restorations of Teeth using a Three Dimensional Structural Finite Element Analysis.","Engineered Science 2021;16:281–7.","10.30919/es8d572"],
+[34,"Paruchuri H, Ballullaya SV, Vadamodalu AK, Shankar P, Donthireddy BKR.",2025,"Stress analysis of biomimetic restorations under thermomechanical loading using three-dimensional finite element analysis.","J Conserv Dent Endod 2025;28:1038–44.","10.4103/JCDE.JCDE_493_25"],
+[35,"Soares PV, Machado AC, Zeola LF, Souza PG, Galvao AM, Montes TC, et al.",2015,"Loading and composite restoration assessment of various non-carious cervical lesions morphologies — 3D finite element analysis.","Aust Dent J 2015;60:309–16.","10.1111/adj.12233"],
+[36,"Srivastava B, N ND, Gupta N, Singh R.",2018,"Comparative Evaluation of Various Temperature Changes on Stress Distribution in Class II Mesial-occlusal-distal Preparation restored with Different Restorative Materials: A Finite Element Analysis.","Int J Clin Pediatr Dent 2018;11:167–70.","10.5005/jp-journals-10005-1505"],
+[37,"Sun T, Shao B, Liu Z.",2021,"Effects of the lining material, thickness and coverage on residual stress of class II molar restorations by multilayer technique.","Comput Methods Programs Biomed 2021;202:105995.","10.1016/j.cmpb.2021.105995"],
+[38,"Tabtila U, Untara RTE, Prayitno YAK, Prayoga BT, Rinastiti M.",2026,"Stress distribution in Class I composite restorations with polyethylene fiber wallpapering under different occlusal loads: A three-dimensional finite element analysis.","J Conserv Dent Endod 2026;29:491–6.","10.4103/JCDE.JCDE_99_26"],
+[39,"Tavangar SM, Davalloo RT, Darabi F, Tajziehchi G.",2025,"Stress Distribution Pattern in Class I Cavities Restored by Different Techniques According to the Stress Reducing Direct Composite Concept: A Finite Element Analysis.","Int J Dent 2025;2025:7196931.","10.1155/ijod/7196931"],
+[40,"Thadathil Varghese J, Babaei B, Farrar P, Prentice L, Prusty BG.",2022,"Influence of thermal and thermomechanical stimuli on a molar tooth treated with resin-based restorative dental composites.","Dent Mater 2022;38:811–23.","10.1016/j.dental.2022.04.010"],
+[41,"Thadathil Varghese J, Islam F, Farrar P, Prentice L, Prusty BG.",2024,"Multi-response optimisation analysis of material properties in dental restorative composites under the influence of thermal and thermomechanical stimuli — A 3D finite element study.","J Mech Behav Biomed Mater 2024;150:106363.","10.1016/j.jmbbm.2023.106363"],
+[42,"Thadathil Varghese J, Islam F, Farrar P, Prusty BG.",2025,"Optimising dental restorative composites: Numerical and statistical analysis of polymerization shrinkage and elastic modulus effects.","J Mech Behav Biomed Mater 2025;167:106981.","10.1016/j.jmbbm.2025.106981"],
+[43,"Uppangala RS, Pai ST, Patil V, Smriti K, Naik N, Shetty R, et al.",2023,"Influence of Thermal and Thermomechanical Stimuli on Dental Restoration Geometry and Material Properties of Cervical Restoration: A 3D Finite Element Analysis.","J Compos Sci 2023;7:6.","10.3390/jcs7010006"],
+[44,"Verdonschot N, Fennis WM, Kuijs RH, Stolk J, Kreulen CM, Creugers NH.",2001,"Generation of 3-D finite element models of restored human teeth using micro-CT techniques.","Int J Prosthodont 2001;14:310–5.",""],
+[45,"Wang Y, Liao Z, Liu D, Liu Z, McIntyre GT, Jian F, et al.",2011,"3D-FEA of stress levels and distributions for different bases under a Class I composite restoration.","Am J Dent 2011;24:3–7.",""],
+[46,"Weimann D, Morgenthal A, Schwendicke F, Fleck C, Razi H.",2021,"Substantial regional differences in the biomechanical behavior of molar treated with selective caries tissue removal technique: a finite element study.","Dent Mater 2021;37:e162–75.","10.1016/j.dental.2020.11.008"],
+[47,"Yu YH, Jeon MJ, Shin SJ, Park JW.",2026,"Mechanical behavior of tooth-class II restoration complex with various restorative materials using linear and non-linear finite element analysis.","Sci Rep 2026;16.","10.1038/s41598-026-40204-3"],
+[48,"Zeola LF, Pereira FA, Machado AC, Reis BR, Kaidonis J, Xie Z, et al.",2016,"Effects of non-carious cervical lesion size, occlusal loading and restoration on biomechanical behaviour of premolar teeth.","Aust Dent J 2016;61:408–17.","10.1111/adj.12391"],
+[49,"Zuo Q, Li A, Teng H, Liu Z.",2024,"Influence of internal angle and shape of the lining on residual stress of Class II molar restorations.","Comput Methods Biomech Biomed Engin 2024;27:680–8.","10.1080/10255842.2024.2301792"]
+];
+const B=[
+["Enamel","Park S, Quinn JB, Romberg E, Arola D. On the brittleness of enamel and selected dental materials.","Dent Mater 2008;24:1477–85.","10.1016/j.dental.2008.03.007"],
+["Enamel","Park S, Wang DH, Zhang D, Romberg E, Arola D. Mechanical properties of human enamel as a function of age and location in the tooth.","J Mater Sci Mater Med 2008;19:2317–24.","10.1007/s10856-007-3340-y"],
+["Enamel, dentin","Andrejovská J, Petruš O, Medveď D, Vojtko M, Riznič M, Kizek P, et al. Hardness and indentation modulus of human enamel and dentin.","Surf Interface Anal 2023;55:270–8.","10.1002/sia.7187"],
+["Enamel","Carreon AH, Funkenbusch PD. Nanoscale properties and deformation of human enamel and dentin.","J Mech Behav Biomed Mater 2019;97:74–84.","10.1016/j.jmbbm.2019.05.009"],
+["Dentin","Cappelloni I, Montanari R, Richetta M, Gentili S. Mechanical properties of human dentin Part I – Measurement of elastic modulus and damping by mechanical spectroscopy.","Healthy World Conference 2015, Kakinada, India, 2015, p. 1–6.",""],
+["Dentin","Craig RG, Peyton FA. Elastic and mechanical properties of human dentin.","J Dent Res 1958;37:710–8.","10.1177/00220345580370041801"],
+["Pulp","Ozcan B, Bayrak E, Erisken C. Characterization of human dental pulp tissue under oscillatory shear and compression.","J Biomech Eng 2016;138:061006.","10.1115/1.4033437"],
+["PDL","Limjeerajarus N, Sratong-on P, Dhammayannarangsi P, Tompkins KA, Kamolratanakul P, Phannarus K, et al. Determination of the compressive modulus of elasticity of periodontal ligament derived from human first premolars.","Heliyon 2023;9.","10.1016/j.heliyon.2023.e14276"],
+["Cortical bone","Schwartz-Dabney CL, Dechow PC. Variations in cortical material properties throughout the human dentate mandible.","Am J Phys Anthropol 2003;120:252–77.","10.1002/ajpa.10121"],
+["Cortical bone","Lettry S, Seedhom BB, Berry E, Cuppone M. Quality assessment of the cortical bone of the human mandible.","Bone 2003;32:35–44.","10.1016/s8756-3282(02)00921-3"],
+["Cancellous bone","Misch CE, Qu Z, Bidez MW. Mechanical properties of trabecular bone in the human mandible: implications for dental implant treatment planning and surgical placement.","J Oral Maxillofac Surg 1999;57:700–6.","10.1016/s0278-2391(99)90437-8"]
+];
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fold=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ı/g,'i').toLowerCase();
+function hl(text,q){
+  const t=esc(text); if(!q) return t;
+  const f=fold(text); const out=[]; let i=0, j;
+  while((j=f.indexOf(q,i))>-1){ out.push(esc(text.slice(i,j)),'<mark>',esc(text.slice(j,j+q.length)),'</mark>'); i=j+q.length; }
+  out.push(esc(text.slice(i))); return out.join('');
+}
+const doi=d=>d?` <a href="https://doi.org/${esc(d)}" target="_blank" rel="noopener">doi:${esc(d)}</a>`:'';
+const list=document.getElementById('list'), count=document.getElementById('count'), q=document.getElementById('q');
+function render(){
+  const k=fold(q.value.trim());
+  const rows=S.filter(r=>!k||fold(r[1]+' '+r[2]+' '+r[3]+' '+r[4]).includes(k));
+  list.innerHTML=rows.map(r=>`<li><span class="n">[${r[0]}]</span><div class="cite"><span class="au">${hl(r[1],k)} (${hl(String(r[2]),k)})</span><span class="ti">${hl(r[3],k)}</span><span class="so">${esc(r[4])}${doi(r[5])}</span></div></li>`).join('')||'<li class="empty">No study matches that search. Try a surname only.</li>';
+  count.textContent=k?`${rows.length} of 49 studies`:'49 studies';
+}
+q.addEventListener('input',render); render();
+document.getElementById('bands').innerHTML=B.map(b=>`<li><span class="n" style="font-size:12px">${esc(b[0])}</span><div class="cite"><span class="ti" style="font-weight:400">${esc(b[1])}</span><span class="so">${esc(b[2])}${doi(b[3])}</span></div></li>`).join('');
+document.querySelectorAll('#bands li').forEach(li=>li.style.gridTemplateColumns='7.5em 1fr');
+const msg=document.getElementById('copied');
+document.getElementById('copy').addEventListener('click',()=>{
+  const a=document.getElementById('addr').textContent;
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('addr'));const s=getSelection();s.removeAllRanges();s.addRange(r);msg.textContent='Selected: copy it from your keyboard or menu.';};
+  try{navigator.clipboard.writeText(a).then(()=>{msg.textContent='Copied';},sel);}catch(e){sel();}
+});
+</script>
+
+</body>
+</html>
